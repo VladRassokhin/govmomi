@@ -808,8 +808,8 @@ func (c *Client) WriteFile(ctx context.Context, file string, src io.Reader, size
 	}
 
 	if s != nil {
-		pr := progress.NewReader(ctx, s, src, size)
-		src = pr
+		pr := progress.NewReader(ctx, s, r, size)
+		r = pr
 
 		// Mark progress reader as done when returning from this function.
 		defer func() {
